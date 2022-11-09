@@ -47,7 +47,7 @@ export class AlbumCrearComponent implements OnInit {
       }, err => {
         this.toastrService.error(err, 'Error');
       });
-      window.top.postMessage('createAlbum', '*')
+      window.top.postMessage('createAlbum', '/albums/list')
   }
 
 
