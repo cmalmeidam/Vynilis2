@@ -35,7 +35,6 @@ export class MusicianCreateComponent implements OnInit {
   }
 
   createMusician(request: CreateMusicianRequest) {
-    // this.showSuccess(newClient);
     console.log(request.birthDate);
     this.musicianService.createMusician(request)
       .subscribe(
