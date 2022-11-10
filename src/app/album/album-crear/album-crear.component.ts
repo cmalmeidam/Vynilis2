@@ -53,7 +53,7 @@ export class AlbumCrearComponent implements OnInit {
 
   cancelCreation() {
     this.toastrService.warning('Album no creado', 'Album creacion');
-    window.top.postMessage('cancelCreation', '*')
+    window.top.postMessage('cancelCreation', 'http://localhost/albums/list')
     this.router.navigate(['/albums/list']);
 
   }
