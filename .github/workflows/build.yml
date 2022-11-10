@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - bugfix*
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
