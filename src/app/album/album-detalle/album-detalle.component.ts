@@ -31,7 +31,9 @@ export class AlbumDetalleComponent implements OnInit {
 
 
   getAlbumDetalle(): void {
+    console.log("*************** Llega aca")
     this.albumService.getAlbumDetalle(this.idAlbumDetalle).subscribe(album => {
+      console.log("*************** Llega aca 2")
       this.albumDetalle = album;
       if (this.albumDetalle.performers.length == 0) {
         this.sinPerformers = true
@@ -42,14 +44,18 @@ export class AlbumDetalleComponent implements OnInit {
       console.log(JSON.stringify(this.albumDetalle))
     });
     this.albumService.getCollectors().subscribe(collectors => {
+      console.log("*************** Llega aca 3")
       this.collectors = collectors;
       for(let c of this.collectors) {
         this.albumService.getCollectorAlbum(c.id).subscribe(albums => {
+          console.log("*************** Llega aca 4")
           for(let a of albums) {
+            console.log("*************** Llega aca 5")
             if(a.album.id == this.albumDetalle.id) {
               this.coleccionistas.push(a);
             }
           }
+          console.log("*************** Llega aca 6")
         });
       }
     });
@@ -76,9 +82,10 @@ export class AlbumDetalleComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.coleccionistas = [];
     this.getAlbumDetalle();
     this.verTrack = false;
     this.verCollector = false;
-    this.coleccionistas = [];
+
   }
 }
