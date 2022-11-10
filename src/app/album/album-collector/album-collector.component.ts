@@ -31,7 +31,7 @@ export class AlbumCollectorComponent implements OnInit {
   }
 
   agregarCollecionista(collector: CollectorAlbum): void {
-    this.selected = collector.id.toString()
+    this.selected = collector.id.toString(),
     collector.id = undefined;
     this.albumService.asociarColeccionista(this.selected, this.albumId, collector).subscribe(
       ca => {
